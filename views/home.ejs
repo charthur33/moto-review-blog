@@ -1,0 +1,23 @@
+
+<%- include("partials/header"); -%>
+
+<h1>Home</h1>
+<p><%= openingParagraph %></p>
+
+<% allPosts.forEach(function(post){ %>
+  <% let postText = truncString(post.content, 100); %>
+  <h1><%= post.title %></h1>
+  <p><%= postText %> <a href="/posts/<%= post._id %>">Read More</a></p>
+<% }); %>
+
+<%# Truncates a given string to a specified length + ... %>
+<% function truncString(string, truncLength) { %>
+<%  let output = string; %>
+<%  if (string.length > truncLength) { %>
+<%    output = string.substring(0, truncLength + 1) + " ..."; %>
+<%  }  %>
+<%  return output; %>
+<% } %>
+
+
+<%- include("partials/footer"); -%>
