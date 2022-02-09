@@ -2,23 +2,21 @@
 
 <div class="text-center sign-in">
 <main class="form-signin">
-    <form>
-      <iframe src="https://giphy.com/embed/eNjZ4EOtVsgWA" width="200" height="154" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <form action="/subscribe" method="post">
+      <!-- <iframe src="https://giphy.com/embed/eNjZ4EOtVsgWA" width="200" height="154" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
       <h1 class="h3 mb-3 fw-normal">Subscribe to get email updates on new reviews and more!</h1>
-  
       <div class="form-floating">
-        <input type="text" class="form-control" id="fNameInput" placeholder="fName">
-        <label for="fNameInput">First name</label>
+        <input type="text" class="form-control top" id="input1" name="fName" placeholder="First Name" required autofocus>
+        <label for="input1">First name</label>
       </div>
       <div class="form-floating">
-        <input type="text" class="form-control" id="lNameInput" placeholder="lName">
-        <label for="lNameInput">Last name</label>
+        <input type="text" class="form-control middle" id="input2" name="lName" placeholder="Last Name" required>
+        <label for="input2">Last name</label>
       </div>
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
+        <input type="email" class="form-control bottom" id="input3" name="email" placeholder="Email" required>
+        <label for="input3">Email address</label>
       </div>
-  
       <button class="w-100 btn btn-lg btn-primary sub-btn" type="submit">Subscribe</button>
     </form>
   </main>

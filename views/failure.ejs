@@ -1,0 +1,13 @@
+<%- include("partials/header"); -%>
+
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Uh oh... something went wrong.</h1>
+      <p class="col-md-8 fs-4">Please try again or contact the blog admin.</p>
+      <form action="/failure" method="post">
+        <button type="submit" class="btn btn-lg btn-warning" name="button">Try Again</button>
+      </form>
+    </div>
+  </div>
+
+<%- include("partials/footer"); -%>

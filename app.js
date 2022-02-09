@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const https = require("https");
 const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require("mongoose");
@@ -66,6 +67,15 @@ app.get("/compose", function(req, res) {
     res.render('compose');
 });
 
+app.get("/success", function(req, res) {
+    res.render('success');
+});
+
+app.get("/failure", function(req, res) {
+    res.render('failure');
+});
+
+
 app.get("/posts/:postId", function(req, res) {
     //PostID url comes from "read more" link (see home.ejs)
     const postID = req.params.postId;
@@ -105,8 +115,51 @@ app.post("/compose", function (req, res) {
 
 });
 
+app.post("/failure", function (req, res) {
+  res.redirect("/subscribe");
+});
+
 //***********************SUBSCRIBE/MAIL CHIMP ********/
 
+
+app.post("/subscribe", function(req, res) {
+  const firstName = req.body.fName;
+  const lastName = req.body.lName;
+  const email = req.body.email;
+
+  var data = {
+    members: [{
+      email_address: email,
+      status: "subscribed",
+      merge_fields: {
+        FNAME: firstName,
+        LNAME: lastName
+      }
+    }]
+  };
+
+  const jsonData = JSON.stringify(data);
+
+  const url = process.env.MC_URL;
+  const options = {
+    method: "POST",
+    auth: process.env.MC_API_KEY
+  }
+
+  const request = https.request(url, options, function(response) {
+    response.on("data", function(data) {
+      if (response.statusCode == 200) {
+        res.redirect("/success");
+      } else {
+        res.redirect("/failure");
+      }
+    })
+  });
+
+  request.write(jsonData);
+  request.end();
+
+});
 
 
 
