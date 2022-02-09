@@ -1,8 +1,10 @@
 
 <%- include("partials/header"); -%>
 
-<h1>Home</h1>
-<p><%= openingParagraph %></p>
+<h1 class="home-h1">Home - </h1>
+<h2 class="home-h2"><em>Smiles Per Gallon (SPG) Moto Reviews</em></h2>
+<p class="opening-paragraph"><%= openingParagraph %></p>
+<hr>
 
 <% allPosts.forEach(function(post){ %>
   <% let postText = truncString(post.content, 100); %>

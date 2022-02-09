@@ -68,3 +68,15 @@ html {
 .navbar-brand {
   margin-left: 50px;
 }
+
+.home-h1{
+  display: inline-block;
+}
+
+.home-h2 {
+  display: inline-block;
+}
+
+.opening-paragraph {
+  padding: 20px 0;
+}
