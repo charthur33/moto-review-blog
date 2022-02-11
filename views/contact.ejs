@@ -1,6 +1,45 @@
 <%- include("partials/header"); -%>
 
-  <h1>Contact</h1>
-  <p><%= contactContent %></p>
+<h1>Contact Us</h1>
+  <!-- Wrapper container -->
+<div class="container py-4">
+
+  <!-- Bootstrap 5 starter form -->
+  <form action="/contact" method="post" id="contact-form">
+
+    <!-- Name input -->
+    <div class="mb-3">
+      <label class="form-label" for="name">Name</label>
+      <input class="form-control" name="name" id="name" type="text" placeholder="Name" required/>
+    </div>
+
+    <!-- Email address input -->
+    <div class="mb-3">
+      <label class="form-label" for="emailAddress">Email Address</label>
+      <input class="form-control" name="email" id="emailAddress" type="email" placeholder="Email Address" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="subjectInput">Subject</label>
+      <input class="form-control" name="subject" id="subjectInput" type="text" placeholder="Subject" required />
+    </div>
+
+    <!-- Message input -->
+    <div class="mb-3">
+      <label class="form-label" for="messageInput">Message</label>
+      <textarea class="form-control" name="message" id="messageInput" type="text" placeholder="Message" style="height: 10rem;" required></textarea>
+    </div>
+
+
+    <!-- Form submit button -->
+    <div class="d-grid">
+      <button class="btn btn-primary btn-lg contact-btn" id="submitButton" type="submit">Submit</button>
+    </div>
+
+  </form>
+
+</div>
+
+
 
 <%- include("partials/footer"); -%>
