@@ -62,11 +62,11 @@ html {
 .logo-img {
   width: 150px;
   height: 115px;
-  margin-left: -4%;
+  margin-left: -12%;
 }
 
 .navbar-brand {
-  margin-left: 50px;
+  margin-left: 10px;
 }
 
 .home-h1{
@@ -81,11 +81,3 @@ html {
   padding: 20px 0;
 }
 
-/* .contact-btn {
-  background-color: #33d8b7;
-  border: none;
-}
-.contact-btn:hover {
-  background-color: grey;
-  
-} */
