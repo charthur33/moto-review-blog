@@ -29,9 +29,12 @@ const postsSchema = {
   content: String,
   make: String,
   model: String,
+  year: String,
   trim: String,
   thumbnailId: String,
-  carouselId: String
+  carouselId: String,
+  ratingText: String,
+  overallRating: String
 };
 
 const Post = mongoose.model("Post", postsSchema);
@@ -104,12 +107,32 @@ app.get("/posts/:postId", function (req, res) {
     } else {
       res.render('post', {
         postTitle: foundPost.title,
-        postText: foundPost.content
+        postText: foundPost.content,
+        make: foundPost.make,
+        model: foundPost.model,
+        year: foundPost.year,
+        trim: foundPost.trim,
+        thumbnailId: foundPost.thumbnailId,
+        carouselId: foundPost.carouselId,
+        ratingText: foundPost.ratingText,
+        overallRating: foundPost.overallRating
+        
       });
     }
   });
 
 });
+
+// title: String,
+// content: String,
+// make: String,
+// model: String,
+// year: String,
+// trim: String,
+// thumbnailId: String,
+// carouselId: String,
+// ratingText: String,
+// overallRating: String
 
 
 app.post("/compose", function (req, res) {
@@ -120,6 +143,8 @@ app.post("/compose", function (req, res) {
   let trim = req.body.trim;
   let thumbnailId = req.body.thumbnailId;
   let carouselId = req.body.carouselId;
+  let ratingText = req.body.ratingText;
+  let overallRating = req.body.overallRating;
  
   //Object that will store a complete blog post
   const newPost = new Post({
@@ -129,7 +154,9 @@ app.post("/compose", function (req, res) {
     model: model,
     trim: trim,
     thumbnailId: thumbnailId,
-    carouselId: carouselId
+    carouselId: carouselId,
+    ratingText: ratingText,
+    overallRating: overallRating
   });
 
   //Callback prevents the page from reloading before new post is saved to the DB
