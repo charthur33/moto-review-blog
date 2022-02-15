@@ -3,8 +3,28 @@
   <h1>Compose</h1>
   <form action="/compose" method="post">
     <div class="mb-3">
-      <label class="form-label"><b>Title</b></label>
+      <label for="input1" class="form-label"><b>Title</b></label>
       <input type="text" class="form-control" id="input1" name="postTitle">
+    </div>
+    <div class="mb-3">
+      <label for="input2" class="form-label"><b>Make</b></label>
+      <input type="text" class="form-control" id="input2" name="make">
+    </div>
+    <div class="mb-3">
+      <label for="input3" class="form-label"><b>Model</b></label>
+      <input type="text" class="form-control" id="input3" name="model">
+    </div>
+    <div class="mb-3">
+      <label for="input4" class="form-label"><b>Trim</b></label>
+      <input type="text" class="form-control" id="input4" name="trim">
+    </div>
+    <div class="mb-3">
+      <label for="input5" class="form-label"><b>Thumbnail Id</b></label>
+      <input type="text" class="form-control" id="input5" name="thumbnailId">
+    </div>
+    <div class="mb-3">
+      <label for="input6" class="form-label"><b>Carousel Id</b></label>
+      <input type="text" class="form-control" id="input5" name="carouselId">
     </div>
     <div class="mb-3">
       <label class="form-label"><b>Post</b></label>
@@ -14,3 +34,12 @@
   </form>
 
 <%- include("partials/footer"); -%>
+
+
+<!-- title: String,
+  content: String,
+  make: String,
+  model: String,
+  trim: String,
+  thumbnailId: String,
+  carouselId: String -->

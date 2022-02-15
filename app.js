@@ -30,7 +30,7 @@ const postsSchema = {
   make: String,
   model: String,
   trim: String,
-  homePicId: String,
+  thumbnailId: String,
   carouselId: String
 };
 
@@ -86,6 +86,10 @@ app.get("/msgFailure", function (req, res) {
   res.render('msgFailure');
 });
 
+app.get("/delete", function (req, res) {
+  res.render('delete');
+});
+
 
 
 
@@ -111,10 +115,21 @@ app.get("/posts/:postId", function (req, res) {
 app.post("/compose", function (req, res) {
   let post_title = req.body.postTitle;
   let post_text = req.body.postText;
+  let make = req.body.make;
+  let model = req.body.model;
+  let trim = req.body.trim;
+  let thumbnailId = req.body.thumbnailId;
+  let carouselId = req.body.carouselId;
+ 
   //Object that will store a complete blog post
   const newPost = new Post({
     title: post_title,
-    content: post_text
+    content: post_text,
+    make: make,
+    model: model,
+    trim: trim,
+    thumbnailId: thumbnailId,
+    carouselId: carouselId
   });
 
   //Callback prevents the page from reloading before new post is saved to the DB
@@ -127,6 +142,18 @@ app.post("/compose", function (req, res) {
   });
 
 });
+
+app.post("/delete", function (req, res) {
+  let post_title = req.body.postTitle;
+  Post.deleteOne({title: post_title}, function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/");
+    }
+  });
+});
+
 
 app.post("/failure", function (req, res) {
   res.redirect("/subscribe");
