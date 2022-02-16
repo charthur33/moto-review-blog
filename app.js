@@ -33,7 +33,11 @@ const postsSchema = {
   trim: String,
   thumbnailId: String,
   carouselId: String,
-  ratingText: String,
+  rating1: String,
+  rating2: String,
+  rating3: String,
+  rating4: String,
+  rating5: String,
   overallRating: String
 };
 
@@ -114,7 +118,11 @@ app.get("/posts/:postId", function (req, res) {
         trim: foundPost.trim,
         thumbnailId: foundPost.thumbnailId,
         carouselId: foundPost.carouselId,
-        ratingText: foundPost.ratingText,
+        rating1: foundPost.rating1,
+        rating2: foundPost.rating2,
+        rating3: foundPost.rating3,
+        rating4: foundPost.rating4,
+        rating5: foundPost.rating5,
         overallRating: foundPost.overallRating
         
       });
@@ -140,10 +148,15 @@ app.post("/compose", function (req, res) {
   let post_text = req.body.postText;
   let make = req.body.make;
   let model = req.body.model;
+  let year = req.body.year;
   let trim = req.body.trim;
   let thumbnailId = req.body.thumbnailId;
   let carouselId = req.body.carouselId;
-  let ratingText = req.body.ratingText;
+  let rating1 = req.body.rating1;
+  let rating2 = req.body.rating2;
+  let rating3 = req.body.rating3;
+  let rating4 = req.body.rating4;
+  let rating5 = req.body.rating5;
   let overallRating = req.body.overallRating;
  
   //Object that will store a complete blog post
@@ -152,10 +165,15 @@ app.post("/compose", function (req, res) {
     content: post_text,
     make: make,
     model: model,
+    year: year,
     trim: trim,
     thumbnailId: thumbnailId,
     carouselId: carouselId,
-    ratingText: ratingText,
+    rating1: rating1,
+    rating2: rating2,
+    rating3: rating3,
+    rating4: rating4,
+    rating5: rating5,
     overallRating: overallRating
   });
 

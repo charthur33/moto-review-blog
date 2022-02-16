@@ -6,6 +6,7 @@ html {
 .container-fluid {
     padding: 20px 7%;
 }
+
 .navbar {
     padding-bottom: 5px;
     padding-top: 0;
@@ -81,3 +82,18 @@ html {
   padding: 20px 0;
 }
 
+.post-page h2, h3 {
+  padding-bottom: 15px;
+}
+
+.post-page h1 {
+  padding-bottom: 30px;
+}
+
+.thumbnail {
+  width: 400px;
+  height: 300px;
+  position: relative;
+  float: left;
+  margin-right: 50px;
+}
