@@ -2,14 +2,20 @@
 
 <div class="post-page">
     <h1><%= postTitle %></h1>
-    <h3><%= carouselId %>[Carousel will go here]...</h3>
+    <div>
+        <% let caroString = "img-carousels/" + carouselId %>
+        <%- include(caroString); -%>
+    </div>
+    <h2>Our Take</h2>
     <p><%= postText %></p>
-    <h2>Ratings:</h2>
-    <p><%= rating1 %></p>
-    <p><%= rating2 %></p>
-    <p><%= rating3 %></p>
-    <p><%= rating4 %></p>
-    <p><%= rating5 %></p>
+    <h2>Our Scores</h2>
+    <div class="ratings-text">
+        <p><%= rating1 %></p>
+        <p><%= rating2 %></p>
+        <p><%= rating3 %></p>
+        <p><%= rating4 %></p>
+        <p><%= rating5 %></p>
+    </div>
     <h2>SPG Overall Rating: <%= overallRating %></h2>
 </div>
 

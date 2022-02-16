@@ -7,15 +7,16 @@
 <hr>
 
 <% allPosts.forEach(function(post){ %>
-  <% let postText = truncString(post.content, 200); %>
+  <% let postText = truncString(post.content, 300); %>
   <% let year = post.year; %>
   <% let model = post.model; %>
   <% let thumbnailId = post.thumbnailId; %>
   <% let thumbnailString = year + model + "/" + thumbnailId + ".png"; %>
-
-  <h1><%= post.title %></h1>
-  <img class="thumbnail" src="/images/<%= thumbnailString %>" />
-  <p><%= postText %> <a href="/posts/<%= post._id %>">Read More</a></p>
+  <div class="home-posts">
+    <h1><%= post.title %></h1>
+    <a href="/posts/<%= post._id %>"><img class="thumbnail" src="/images/<%= thumbnailString %>" /></a>
+    <p><%= postText %> <a href="/posts/<%= post._id %>">Read More</a></p>
+  </div>
 <% }); %>
 
 <%# Truncates a given string to a specified length + ... %>

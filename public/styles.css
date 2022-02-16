@@ -5,6 +5,7 @@ html {
 
 .container-fluid {
     padding: 20px 7%;
+    height: 100%;
 }
 
 .navbar {
@@ -64,6 +65,7 @@ html {
   width: 150px;
   height: 115px;
   margin-left: -12%;
+  margin-bottom: 10px;
 }
 
 .navbar-brand {
@@ -83,7 +85,7 @@ html {
 }
 
 .post-page h2, h3 {
-  padding-bottom: 15px;
+  padding: 15px 0;
 }
 
 .post-page h1 {
@@ -96,4 +98,99 @@ html {
   position: relative;
   float: left;
   margin-right: 50px;
+  margin-bottom: 15px;
+}
+
+.home-posts h1 {
+  margin: 30px 0;
+}
+
+.home-posts p {
+  font-size: 1.25rem;
+}
+
+.ratings-text {
+  font-size: 1.25rem;
+}
+
+/* .caro-img {
+  max-width: 30%;
+  max-height: auto;
+}
+
+.caro-section {
+  text-align: center;
+  height: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-item {
+  height: 30%;
+}
+
+.carousel-indicators {
+  bottom: -15px;
+} */
+
+/* ************ IMAGE GRIDS ********** */
+
+.img-grid {
+  text-align: center;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.img-column {
+  /* float: left; */
+  margin: auto auto;
+  width: 20%;
+  padding: 10px;
+  display: inline-block;
+}
+
+/* Style the images inside the grid */
+.img-column img {
+  opacity: 0.8;
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+}
+
+.img-column img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.img-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container (positioning is needed to position the close button and the text) */
+.img-container {
+  position: relative;
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the image */
+.closebtn {
+  padding-right: 98%;
+  display: inline-block;
+  color: black;
+  font-size: 35px;
+  cursor: pointer;
 }
