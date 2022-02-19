@@ -2,22 +2,51 @@
 
 <div class="post-page">
     <h1><%= postTitle %></h1>
+    
+    <nav class="navbar navbar-expand-md navbar-light me-auto">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#postNavbar" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="postNavbar">
+            <div class="navbar-nav ms-auto post-navbar">
+              <a class="nav-link" href="#review">Full Review</a>
+              <a class="nav-link"  href="#scores">Scores</a>
+              <a class="nav-link"  href="#overallScore">Overall Rating</a>
+              <a class="nav-link" href="#otherReviews">Other Reviews</a>
+            </div>
+          </div>
+    </nav>
+
+
     <div>
-        <% let caroString = "img-carousels/" + carouselId %>
-        <%- include(caroString); -%>
+        <% let gridString = "img-grids/" + gridId %>
+        <%- include(gridString); -%>
     </div>
-    <h2>Our Take</h2>
-    <p><%= postText %></p>
-    <h2>Our Scores</h2>
-    <div class="ratings-text">
-        <p><%= rating1 %></p>
-        <p><%= rating2 %></p>
-        <p><%= rating3 %></p>
-        <p><%= rating4 %></p>
-        <p><%= rating5 %></p>
-    </div>
-    <h2>SPG Overall Rating: <%= overallRating %></h2>
+    <section id="review">
+        <h2>Our Take</h2>
+        <p><%= postText %></p>
+    </section>
+    <section id="scores">
+        <h2>Our Scores</h2>
+        <div class="ratings">
+            <p><%= rating1 %></p>
+            <p><%= rating2 %></p>
+            <p><%= rating3 %></p>
+            <p><%= rating4 %></p>
+            <p><%= rating5 %></p>
+        </div>
+    </section>
+    <section id="overallScore">
+        <h2>SPG Overall Rating: <%= overallRating %></h2>
+    </section>
+    <section id="otherReviews">
+
+      <% console.log(videoResults); %>
+        
+    </section>
 </div>
+
+
 
 
 <%- include("partials/footer"); -%>

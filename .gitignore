@@ -132,3 +132,6 @@ dist
 # admin
 views/compose.ejs
 views/delete.ejs
+
+# youtube API
+client_secret.json

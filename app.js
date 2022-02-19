@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const nodemailer = require("nodemailer");
 const { propertyOf } = require("lodash");
-
+var search = require('youtube-search');
 
 const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
 const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
@@ -32,7 +32,7 @@ const postsSchema = {
   year: String,
   trim: String,
   thumbnailId: String,
-  carouselId: String,
+  gridId: String,
   rating1: String,
   rating2: String,
   rating3: String,
@@ -98,7 +98,7 @@ app.get("/delete", function (req, res) {
 });
 
 
-
+// ****** RENDERING A POST WITH YOUTUBE REVIEWS ******** /
 
 app.get("/posts/:postId", function (req, res) {
   //PostID url comes from "read more" link (see home.ejs)
@@ -109,38 +109,40 @@ app.get("/posts/:postId", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render('post', {
-        postTitle: foundPost.title,
-        postText: foundPost.content,
-        make: foundPost.make,
-        model: foundPost.model,
-        year: foundPost.year,
-        trim: foundPost.trim,
-        thumbnailId: foundPost.thumbnailId,
-        carouselId: foundPost.carouselId,
-        rating1: foundPost.rating1,
-        rating2: foundPost.rating2,
-        rating3: foundPost.rating3,
-        rating4: foundPost.rating4,
-        rating5: foundPost.rating5,
-        overallRating: foundPost.overallRating
-        
+      let qString = foundPost.year + " " + foundPost.make + " " + foundPost.model + " reviews";
+
+      var opts = {
+        maxResults: 10,
+        key: process.env.YT_API_KEY
+      };
+      var videoResults = [{}];
+
+      search(qString, opts, function (err, results) {
+        if (err) return console.log(err);
+        videoResults = results;
+
+        res.render('post', {
+          postTitle: foundPost.title,
+          postText: foundPost.content,
+          make: foundPost.make,
+          model: foundPost.model,
+          year: foundPost.year,
+          trim: foundPost.trim,
+          thumbnailId: foundPost.thumbnailId,
+          gridId: foundPost.gridId,
+          rating1: foundPost.rating1,
+          rating2: foundPost.rating2,
+          rating3: foundPost.rating3,
+          rating4: foundPost.rating4,
+          rating5: foundPost.rating5,
+          overallRating: foundPost.overallRating,
+          videoResults: videoResults
+        });
       });
     }
   });
 
 });
-
-// title: String,
-// content: String,
-// make: String,
-// model: String,
-// year: String,
-// trim: String,
-// thumbnailId: String,
-// carouselId: String,
-// ratingText: String,
-// overallRating: String
 
 
 app.post("/compose", function (req, res) {
@@ -151,14 +153,14 @@ app.post("/compose", function (req, res) {
   let year = req.body.year;
   let trim = req.body.trim;
   let thumbnailId = req.body.thumbnailId;
-  let carouselId = req.body.carouselId;
+  let gridId = req.body.gridId;
   let rating1 = req.body.rating1;
   let rating2 = req.body.rating2;
   let rating3 = req.body.rating3;
   let rating4 = req.body.rating4;
   let rating5 = req.body.rating5;
   let overallRating = req.body.overallRating;
- 
+
   //Object that will store a complete blog post
   const newPost = new Post({
     title: post_title,
@@ -168,7 +170,7 @@ app.post("/compose", function (req, res) {
     year: year,
     trim: trim,
     thumbnailId: thumbnailId,
-    carouselId: carouselId,
+    gridId: gridId,
     rating1: rating1,
     rating2: rating2,
     rating3: rating3,
@@ -190,7 +192,7 @@ app.post("/compose", function (req, res) {
 
 app.post("/delete", function (req, res) {
   let post_title = req.body.postTitle;
-  Post.deleteOne({title: post_title}, function (err) {
+  Post.deleteOne({ title: post_title }, function (err) {
     if (err) {
       console.log(err);
     } else {

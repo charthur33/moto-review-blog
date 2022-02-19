@@ -28,6 +28,14 @@ html {
   margin: 0 7px;
 }
 
+.post-navbar {
+  margin-left: 0!important;
+  background-color: #fff;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
 .footer-padding {
 	padding-bottom: 60px;
 }
@@ -113,27 +121,6 @@ html {
   font-size: 1.25rem;
 }
 
-/* .caro-img {
-  max-width: 30%;
-  max-height: auto;
-}
-
-.caro-section {
-  text-align: center;
-  height: 100%;
-}
-
-.carousel-inner {
-  height: 100%;
-}
-
-.carousel-item {
-  height: 30%;
-}
-
-.carousel-indicators {
-  bottom: -15px;
-} */
 
 /* ************ IMAGE GRIDS ********** */
 
