@@ -30,7 +30,6 @@ const postsSchema = {
   make: String,
   model: String,
   year: String,
-  trim: String,
   thumbnailId: String,
   gridId: String,
   rating1: String,
@@ -38,6 +37,11 @@ const postsSchema = {
   rating3: String,
   rating4: String,
   rating5: String,
+  spec1: String,
+  spec2: String,
+  spec3: String,
+  spec4: String,
+  spec5: String,
   overallRating: String
 };
 
@@ -110,7 +114,6 @@ app.get("/posts/:postId", function (req, res) {
       console.log(err);
     } else {
       let qString = foundPost.year + " " + foundPost.make + " " + foundPost.model + " reviews";
-
       var opts = {
         maxResults: 10,
         key: process.env.YT_API_KEY
@@ -127,7 +130,6 @@ app.get("/posts/:postId", function (req, res) {
           make: foundPost.make,
           model: foundPost.model,
           year: foundPost.year,
-          trim: foundPost.trim,
           thumbnailId: foundPost.thumbnailId,
           gridId: foundPost.gridId,
           rating1: foundPost.rating1,
@@ -135,6 +137,11 @@ app.get("/posts/:postId", function (req, res) {
           rating3: foundPost.rating3,
           rating4: foundPost.rating4,
           rating5: foundPost.rating5,
+          spec1: foundPost.spec1,
+          spec2: foundPost.spec2,
+          spec3: foundPost.spec3,
+          spec4: foundPost.spec4,
+          spec5: foundPost.spec5,
           overallRating: foundPost.overallRating,
           videoResults: videoResults
         });
@@ -151,7 +158,6 @@ app.post("/compose", function (req, res) {
   let make = req.body.make;
   let model = req.body.model;
   let year = req.body.year;
-  let trim = req.body.trim;
   let thumbnailId = req.body.thumbnailId;
   let gridId = req.body.gridId;
   let rating1 = req.body.rating1;
@@ -159,6 +165,11 @@ app.post("/compose", function (req, res) {
   let rating3 = req.body.rating3;
   let rating4 = req.body.rating4;
   let rating5 = req.body.rating5;
+  let spec1 = req.body.spec1;
+  let spec2 = req.body.spec2;
+  let spec3 = req.body.spec3;
+  let spec4 = req.body.spec4;
+  let spec5 = req.body.spec5;
   let overallRating = req.body.overallRating;
 
   //Object that will store a complete blog post
@@ -168,7 +179,6 @@ app.post("/compose", function (req, res) {
     make: make,
     model: model,
     year: year,
-    trim: trim,
     thumbnailId: thumbnailId,
     gridId: gridId,
     rating1: rating1,
@@ -176,6 +186,11 @@ app.post("/compose", function (req, res) {
     rating3: rating3,
     rating4: rating4,
     rating5: rating5,
+    spec1: spec1,
+    spec2: spec2,
+    spec3: spec3,
+    spec4: spec4,
+    spec5: spec5,
     overallRating: overallRating
   });
 

@@ -9,9 +9,9 @@
 <% allPosts.forEach(function(post){ %>
   <% let postText = truncString(post.content, 300); %>
   <% let year = post.year; %>
-  <% let model = post.model; %>
+  <% let make = post.make; %>
   <% let thumbnailId = post.thumbnailId; %>
-  <% let thumbnailString = year + model + "/" + thumbnailId + ".png"; %>
+  <% let thumbnailString = year + make + "/" + thumbnailId + ".png"; %>
   <div class="home-posts">
     <h1><%= post.title %></h1>
     <a href="/posts/<%= post._id %>"><img class="thumbnail" src="/images/<%= thumbnailString %>" /></a>

@@ -9,9 +9,10 @@
           </button>
           <div class="collapse navbar-collapse" id="postNavbar">
             <div class="navbar-nav ms-auto post-navbar">
-              <a class="nav-link" href="#review">Full Review</a>
+              <a class="nav-link" href="#specs">Specs</a>
+              <a class="nav-link" href="#review">Review</a>
               <a class="nav-link"  href="#scores">Scores</a>
-              <a class="nav-link"  href="#overallScore">Overall Rating</a>
+              <a class="nav-link"  href="#overallScore">SPG Rating</a>
               <a class="nav-link" href="#otherReviews">Other Reviews</a>
             </div>
           </div>
@@ -22,6 +23,14 @@
         <% let gridString = "img-grids/" + gridId %>
         <%- include(gridString); -%>
     </div>
+    <section id="specs">
+      <h2>Specs</h2>
+      <p>Trim: <%= spec5 %></p>
+      <p>Engine: <%= spec1 %></p>
+      <p>Transmission: <%= spec2 %></p>
+      <p>Wheelbase: <%= spec3 %></p>
+      <p>Curb Weight: <%= spec4 %></p>
+    </section>
     <section id="review">
         <h2>Our Take</h2>
         <p><%= postText %></p>
@@ -29,11 +38,11 @@
     <section id="scores">
         <h2>Our Scores</h2>
         <div class="ratings">
-            <p><%= rating1 %></p>
-            <p><%= rating2 %></p>
-            <p><%= rating3 %></p>
-            <p><%= rating4 %></p>
-            <p><%= rating5 %></p>
+            <p>Driving Dynamics: <%= rating1 %></p>
+            <p>Comfort: <%= rating2 %></p>
+            <p>Practicality: <%= rating3 %></p>
+            <p>Bang for Buck: <%= rating4 %></p>
+            <p>Smiles Per Gallon: <%= rating5 %></p>
         </div>
     </section>
     <section id="overallScore">

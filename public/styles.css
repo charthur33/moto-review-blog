@@ -5,9 +5,10 @@ html {
 
 .container-fluid {
     padding: 20px 7%;
-    height: 100%;
 }
 
+
+/******** NAVBARS *************/
 .navbar {
     padding-bottom: 5px;
     padding-top: 0;
@@ -32,9 +33,89 @@ html {
   margin-left: 0!important;
   background-color: #fff;
   letter-spacing: 3px;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 1rem;
+  text-decoration: underline;
 }
+
+.navbar-brand {
+  margin-left: 10px;
+}
+
+/*************** HOMEPAGE **********/
+.logo-img {
+  width: 150px;
+  height: 115px;
+  margin-left: -12%;
+  margin-bottom: 10px;
+}
+
+.home-h1{
+  display: inline-block;
+}
+
+.home-h2 {
+  display: inline-block;
+}
+
+.opening-paragraph {
+  padding: 20px 0;
+}
+
+.thumbnail {
+  width: 350px;
+  height: 262.5px;
+  position: relative;
+  float: left;
+  margin-right: 50px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+}
+
+.home-posts {
+  min-height: 375px;
+}
+
+.home-posts h1 {
+  margin: 30px 0;
+}
+
+.home-posts p {
+  font-size: 1.25rem;
+}
+
+/*************** POST PAGES **********/
+
+.post-page h2, h3 {
+  padding: 15px 0;
+}
+
+.post-page h1 {
+  padding-bottom: 30px;
+}
+
+.ratings-text {
+  font-size: 1.25rem;
+}
+
+/*************** OTHER PAGES **********/
+
+.compBtn {
+  height: 2rem;
+  line-height: 1rem;
+}
+
+.subscribe {
+    width: 250px;
+    margin: auto auto;
+}
+
+.sub-btn { 
+    margin-top: 10px;
+}
+
+
+/*************** FOOTER **********/
 
 .footer-padding {
 	padding-bottom: 60px;
@@ -55,71 +136,9 @@ html {
   color: #fff;
 }
 
-.compBtn {
-  height: 2rem;
-  line-height: 1rem;
-}
 
-.sign-in {
-    width: 250px;
-    margin: auto auto;
-}
 
-.sub-btn { 
-    margin-top: 10px;
-}
 
-.logo-img {
-  width: 150px;
-  height: 115px;
-  margin-left: -12%;
-  margin-bottom: 10px;
-}
-
-.navbar-brand {
-  margin-left: 10px;
-}
-
-.home-h1{
-  display: inline-block;
-}
-
-.home-h2 {
-  display: inline-block;
-}
-
-.opening-paragraph {
-  padding: 20px 0;
-}
-
-.post-page h2, h3 {
-  padding: 15px 0;
-}
-
-.post-page h1 {
-  padding-bottom: 30px;
-}
-
-.thumbnail {
-  width: 400px;
-  height: 300px;
-  position: relative;
-  float: left;
-  margin-right: 50px;
-  margin-bottom: 15px;
-}
-
-.home-posts h1 {
-  margin: 30px 0;
-}
-
-.home-posts p {
-  font-size: 1.25rem;
-}
-
-.ratings-text {
-  font-size: 1.25rem;
-}
 
 
 /* ************ IMAGE GRIDS ********** */
@@ -128,16 +147,13 @@ html {
   text-align: center;
 }
 
-/* The grid: Four equal columns that floats next to each other */
 .img-column {
-  /* float: left; */
   margin: auto auto;
   width: 20%;
   padding: 10px;
   display: inline-block;
 }
 
-/* Style the images inside the grid */
 .img-column img {
   opacity: 0.8;
   cursor: pointer;
@@ -149,14 +165,12 @@ html {
   opacity: 1;
 }
 
-/* Clear floats after the columns */
 .img-row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* The expanding image container (positioning is needed to position the close button and the text) */
 .img-container {
   position: relative;
   display: none;
@@ -164,7 +178,6 @@ html {
   height: auto;
 }
 
-/* Expanding image text */
 #imgtext {
   position: absolute;
   bottom: 15px;
@@ -173,7 +186,6 @@ html {
   font-size: 20px;
 }
 
-/* Closable button inside the image */
 .closebtn {
   padding-right: 98%;
   display: inline-block;
