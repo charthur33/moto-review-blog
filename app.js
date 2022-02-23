@@ -115,7 +115,7 @@ app.get("/posts/:postId", function (req, res) {
     } else {
       let qString = foundPost.year + " " + foundPost.make + " " + foundPost.model + " reviews";
       var opts = {
-        maxResults: 10,
+        maxResults: 8,
         key: process.env.YT_API_KEY
       };
       var videoResults = [{}];

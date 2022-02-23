@@ -63,11 +63,12 @@ html {
 }
 
 .thumbnail {
-  width: 350px;
-  height: 262.5px;
+  width: 375px;
+  height: 281.3px;
   position: relative;
   float: left;
-  margin-right: 50px;
+  margin-right: 60px;
+  padding-left: 10px;
   margin-bottom: 15px;
   border-radius: 20px;
 }
@@ -94,8 +95,16 @@ html {
   padding-bottom: 30px;
 }
 
+.post-page section {
+  padding-bottom: 50px;
+}
+
 .ratings-text {
   font-size: 1.25rem;
+}
+
+.post-bottom {
+  margin: 100px 0;
 }
 
 /*************** OTHER PAGES **********/

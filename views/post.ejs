@@ -46,11 +46,41 @@
         </div>
     </section>
     <section id="overallScore">
-        <h2>SPG Overall Rating: <%= overallRating %></h2>
+        <h2>SPG Overall Rating: <b><%= overallRating %></b></h2>
     </section>
-    <section id="otherReviews">
+    <hr class="post-bottom">
 
-      <% console.log(videoResults); %>
+    <% let idString1 = videoResults[0].id; %>
+    <% let idString2 = videoResults[1].id; %>
+    <section id="otherReviews">
+      <h2>See Other Reviews</h2>
+      <div class="album py-5 bg-light">
+        <div class="container">
+    
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+            <% videoResults.forEach(function(result) { %>
+
+              <div class="col">
+                <div class="card shadow-sm">
+                
+                  <img class="bd-placeholder-img card-img-top" height="auto" src="https://img.youtube.com/vi/<%= result.id %>/0.jpg" />
+      
+                  <div class="card-body">
+                    <p class="card-text"><%= result.title %></p>
+                  </div>
+                </div>
+              </div>
+
+            <% }); %>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <% console.log(videoResults); %> -->
+      
+      <% console.log(idString1); %> 
         
     </section>
 </div>
