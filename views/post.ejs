@@ -38,11 +38,11 @@
     <section id="scores">
         <h2>Our Scores</h2>
         <div class="ratings">
-            <p>Driving Dynamics: <%= rating1 %></p>
-            <p>Comfort: <%= rating2 %></p>
-            <p>Practicality: <%= rating3 %></p>
-            <p>Bang for Buck: <%= rating4 %></p>
-            <p>Smiles Per Gallon: <%= rating5 %></p>
+            <p>Driving Dynamics: <b><%= rating1 %></b></p>
+            <p>Comfort: <b><%= rating2 %></b></p>
+            <p>Practicality: <b><%= rating3 %></b></p>
+            <p>Bang for Buck: <b><%= rating4 %></b></p>
+            <p>Smiles Per Gallon: <b><%= rating5 %></b></p>
         </div>
     </section>
     <section id="overallScore">
@@ -50,8 +50,7 @@
     </section>
     <hr class="post-bottom">
 
-    <% let idString1 = videoResults[0].id; %>
-    <% let idString2 = videoResults[1].id; %>
+    
     <section id="otherReviews">
       <h2>See Other Reviews</h2>
       <div class="album py-5 bg-light">
@@ -64,10 +63,11 @@
               <div class="col">
                 <div class="card shadow-sm">
                 
-                  <img class="bd-placeholder-img card-img-top" height="auto" src="https://img.youtube.com/vi/<%= result.id %>/0.jpg" />
+                  <a href="<%= result.link %>"><img class="bd-placeholder-img card-img-top" height="auto" src="https://img.youtube.com/vi/<%= result.id %>/0.jpg" /> </a>
       
                   <div class="card-body">
-                    <p class="card-text"><%= result.title %></p>
+                    <i class="fa-brands fa-youtube video-icon fa-xl"></i>
+                    <a class="yt-link" href="<%= result.link %>"><p class="card-text"><%= result.title %></p></a>
                   </div>
                 </div>
               </div>
@@ -79,8 +79,7 @@
 
 
       <!-- <% console.log(videoResults); %> -->
-      
-      <% console.log(idString1); %> 
+     
         
     </section>
 </div>

@@ -95,6 +95,10 @@ html {
   padding-bottom: 30px;
 }
 
+.post-page p {
+  font-size: 1.25rem;
+}
+
 .post-page section {
   padding-bottom: 50px;
 }
@@ -105,6 +109,31 @@ html {
 
 .post-bottom {
   margin: 100px 0;
+}
+
+.yt-link {
+  text-decoration: none;
+}
+
+.card-text {
+  display: inline;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: rgb(109, 109, 109);
+}
+
+.card-text:hover {
+  color: #33d8b7;
+}
+
+.video-icon {
+  display: inline-block;
+  padding-right: 10px;
+  color: red;
+}
+
+.video-icon:hover {
+  color: rgb(187, 0, 0);
 }
 
 /*************** OTHER PAGES **********/
