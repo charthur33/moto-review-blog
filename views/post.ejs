@@ -10,7 +10,7 @@
           <div class="collapse navbar-collapse" id="postNavbar">
             <div class="navbar-nav ms-auto post-navbar">
               <a class="nav-link" href="#specs">Specs</a>
-              <a class="nav-link" href="#review">Review</a>
+              <a class="nav-link" href="#review">Full Review</a>
               <a class="nav-link"  href="#scores">Scores</a>
               <a class="nav-link"  href="#overallScore">SPG Rating</a>
               <a class="nav-link" href="#otherReviews">Other Reviews</a>
@@ -33,7 +33,25 @@
     </section>
     <section id="review">
         <h2>Our Take</h2>
-        <p><%= postText %></p>
+        <p><%= date %></p>
+        <br>
+        <p><i><%= reviewer %></i></p>
+        <br>
+        <br>
+        <% let allParagraphs = []; %>
+        <% let currentParagraph = ""; %>
+        <% for (var i = 0; i < postText.length; i++) {  %>
+        <%   if (postText.charAt(i) === '>') { %>
+        <%      allParagraphs.push(currentParagraph); %>
+        <%      currentParagraph = ""; %>
+        <%   } else { %>
+        <%      currentParagraph += postText.charAt(i); %>
+        <%   } %>
+        <% } %>
+
+        <% for (var j = 0; j < allParagraphs.length; j++) { %>
+          <p class="review-text"><%= allParagraphs[j] %><br></p>
+        <% } %>
        
     </section>
     <section id="scores">
@@ -53,8 +71,8 @@
 
     
     <section id="otherReviews">
-      <h2>See Other Reviews:</h2>
-        <a href="/moreReviews/<%= postTitle %>"><button type="button">Click for More Reviews</button></a>
+      <h2>See Other Reviews of the <%= year %> <%= make %> <%= model %></h2>
+        <a href="/moreReviews/<%= postTitle %>"><button class="moreReviewsBtn" type="button">Click for More Reviews</button></a>
     </section>
 </div>
 

@@ -87,6 +87,18 @@ html {
 
 /*************** POST PAGES **********/
 
+#otherReviews {
+  text-align: center;
+}
+
+#otherReviews h2 {
+  padding-bottom: 80px;
+}
+
+.review-text {
+  margin-bottom: 1rem;
+}
+
 .post-page h2, h3 {
   padding: 20px 0;
   font-size: 2.5rem;
@@ -118,9 +130,27 @@ html {
   margin: 100px 0;
 }
 
+.moreReviewsBtn {
+  background-color: #33d8b7;
+  color: #fff;
+  font-size: 1.5rem;
+  width: auto;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid rgb(153, 153, 153);
+  padding: 0 10px;
+  margin-bottom: 75px;
+}
+
+.moreReviewsBtn:hover {
+  background-color: #1b7e6a;
+}
+
+/************** MORE REVIEWS PAGE ***********/
 .yt-link {
   text-decoration: none;
 }
+
 
 .card-text {
   display: inline;
@@ -142,6 +172,7 @@ html {
 .video-icon:hover {
   color: rgb(187, 0, 0);
 }
+
 
 /*************** OTHER PAGES **********/
 

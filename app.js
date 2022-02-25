@@ -27,6 +27,8 @@ let allPosts = [];
 const postsSchema = {
   title: String,
   content: String,
+  date: String,
+  reviewer: String,
   make: String,
   model: String,
   year: String,
@@ -115,6 +117,8 @@ app.get("/posts/:postId", function (req, res) {
     } else {
       res.render('post', {
         //postID: foundPost._id,
+        date: foundPost.date,
+        reviewer: foundPost.reviewer,
         postTitle: foundPost.title,
         postText: foundPost.content,
         make: foundPost.make,
@@ -175,6 +179,8 @@ app.get("/moreReviews/:postTitle", function (req, res) {
 app.post("/compose", function (req, res) {
   let post_title = req.body.postTitle;
   let post_text = req.body.postText;
+  let date = req.body.date;
+  let reviewer = req.body.reviewer;
   let make = req.body.make;
   let model = req.body.model;
   let year = req.body.year;
@@ -196,6 +202,8 @@ app.post("/compose", function (req, res) {
   const newPost = new Post({
     title: post_title,
     content: post_text,
+    date: date,
+    reviewer: reviewer,
     make: make,
     model: model,
     year: year,
