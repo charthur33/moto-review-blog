@@ -88,7 +88,8 @@ html {
 /*************** POST PAGES **********/
 
 .post-page h2, h3 {
-  padding: 15px 0;
+  padding: 20px 0;
+  font-size: 2.5rem;
 }
 
 .post-page h1 {
@@ -101,6 +102,12 @@ html {
 
 .post-page section {
   padding-bottom: 50px;
+}
+
+.spec-cat {
+  font-weight: bold;
+  display: inline-block;
+  
 }
 
 .ratings-text {

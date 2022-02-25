@@ -113,6 +113,40 @@ app.get("/posts/:postId", function (req, res) {
     if (err) {
       console.log(err);
     } else {
+      res.render('post', {
+        //postID: foundPost._id,
+        postTitle: foundPost.title,
+        postText: foundPost.content,
+        make: foundPost.make,
+        model: foundPost.model,
+        year: foundPost.year,
+        thumbnailId: foundPost.thumbnailId,
+        gridId: foundPost.gridId,
+        rating1: foundPost.rating1,
+        rating2: foundPost.rating2,
+        rating3: foundPost.rating3,
+        rating4: foundPost.rating4,
+        rating5: foundPost.rating5,
+        spec1: foundPost.spec1,
+        spec2: foundPost.spec2,
+        spec3: foundPost.spec3,
+        spec4: foundPost.spec4,
+        spec5: foundPost.spec5,
+        overallRating: foundPost.overallRating
+      });
+    }
+
+  });
+
+});
+
+app.get("/moreReviews/:postTitle", function (req, res) {
+  const postTitle = req.params.postTitle;
+  Post.findOne({title: postTitle}, function (err, foundPost) {
+    if (err) {
+      console.log(err);
+    } else {
+      let title = "More " + foundPost.year + " " + foundPost.make + " " + foundPost.model + " Reviews";
       let qString = foundPost.year + " " + foundPost.make + " " + foundPost.model + " reviews";
       var opts = {
         maxResults: 8,
@@ -121,35 +155,21 @@ app.get("/posts/:postId", function (req, res) {
       var videoResults = [{}];
 
       search(qString, opts, function (err, results) {
-        if (err) return console.log(err);
-        videoResults = results;
-
-        res.render('post', {
-          postTitle: foundPost.title,
-          postText: foundPost.content,
-          make: foundPost.make,
-          model: foundPost.model,
-          year: foundPost.year,
-          thumbnailId: foundPost.thumbnailId,
-          gridId: foundPost.gridId,
-          rating1: foundPost.rating1,
-          rating2: foundPost.rating2,
-          rating3: foundPost.rating3,
-          rating4: foundPost.rating4,
-          rating5: foundPost.rating5,
-          spec1: foundPost.spec1,
-          spec2: foundPost.spec2,
-          spec3: foundPost.spec3,
-          spec4: foundPost.spec4,
-          spec5: foundPost.spec5,
-          overallRating: foundPost.overallRating,
-          videoResults: videoResults
-        });
+        if (err) {
+          console.log(err);
+        } else {
+          videoResults = results;
+          res.render('moreReviews', {
+            title: title,
+            videoResults: videoResults
+          });
+        }
       });
+
     }
   });
-
 });
+
 
 
 app.post("/compose", function (req, res) {

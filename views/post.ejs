@@ -25,15 +25,16 @@
     </div>
     <section id="specs">
       <h2>Specs</h2>
-      <p>Trim: <%= spec5 %></p>
-      <p>Engine: <%= spec1 %></p>
-      <p>Transmission: <%= spec2 %></p>
-      <p>Wheelbase: <%= spec3 %></p>
-      <p>Curb Weight: <%= spec4 %></p>
+      <p class="spec-cat">Trim: </p><p class="spec-info"> <%= spec5 %><br></p>
+      <p class="spec-cat">Engine: </p><p class="spec-info"> <%= spec1 %><br></p>
+      <p class="spec-cat">Transmission: </p><p class="spec-info"> <%= spec2 %><br></p>
+      <p class="spec-cat">Wheelbase: </p><p class="spec-info"> <%= spec3 %><br></p>
+      <p class="spec-cat">Curb Weight: </p><p class="spec-info"> <%= spec4 %><br></p>
     </section>
     <section id="review">
         <h2>Our Take</h2>
         <p><%= postText %></p>
+       
     </section>
     <section id="scores">
         <h2>Our Scores</h2>
@@ -52,35 +53,8 @@
 
     
     <section id="otherReviews">
-      <h2>See Other Reviews</h2>
-      <div class="album py-5 bg-light">
-        <div class="container">
-    
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-            <% videoResults.forEach(function(result) { %>
-
-              <div class="col">
-                <div class="card shadow-sm">
-                
-                  <a href="<%= result.link %>"><img class="bd-placeholder-img card-img-top" height="auto" src="https://img.youtube.com/vi/<%= result.id %>/0.jpg" /> </a>
-      
-                  <div class="card-body">
-                    <i class="fa-brands fa-youtube video-icon fa-xl"></i>
-                    <a class="yt-link" href="<%= result.link %>"><p class="card-text"><%= result.title %></p></a>
-                  </div>
-                </div>
-              </div>
-
-            <% }); %>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- <% console.log(videoResults); %> -->
-     
-        
+      <h2>See Other Reviews:</h2>
+        <a href="/moreReviews/<%= postTitle %>"><button type="button">Click for More Reviews</button></a>
     </section>
 </div>
 

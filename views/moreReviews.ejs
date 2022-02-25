@@ -1,0 +1,29 @@
+<%- include("partials/header"); -%>
+
+<h1><%= title %></h1>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+        <% videoResults.forEach(function(result) { %>
+
+          <div class="col">
+            <div class="card shadow-sm">
+            
+              <a href="<%= result.link %>"><img class="bd-placeholder-img card-img-top" height="auto" src="https://img.youtube.com/vi/<%= result.id %>/0.jpg" /> </a>
+  
+              <div class="card-body">
+                <i class="fa-brands fa-youtube video-icon fa-xl"></i>
+                <a class="yt-link" href="<%= result.link %>"><p class="card-text"><%= result.title %></p></a>
+              </div>
+            </div>
+          </div>
+
+        <% }); %>
+      </div>
+    </div>
+  </div>
+
+<%- include("partials/footer"); -%>
