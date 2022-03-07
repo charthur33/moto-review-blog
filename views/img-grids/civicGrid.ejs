@@ -1,0 +1,52 @@
+
+
+
+<div class="img-grid">
+    <div class="img-container">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <img id="expandedImg" style="width:65%">
+    </div>
+
+
+    <div class="img-row">
+        <div class="img-column">
+        <img src="/images/2017Honda/civic7.jpg" alt="civic picture" id="civic1" onload="getImage(this);" onclick="getImage(this);">
+        </div>
+        <div class="img-column">
+        <img src="/images/2017Honda/civic2.jpg" alt="civic picture" id="civic2" onclick="getImage(this);">
+        </div>
+        <div class="img-column">
+        <img src="/images/2017Honda/civic3.jpg" alt="civic picture" id="civic3" onclick="getImage(this);">
+        </div>
+        <div class="img-column">
+        <img src="/images/2017Honda/civic4.jpg" alt="civic picture" id="civic4" onclick="getImage(this);">
+        </div>
+    </div>
+    <div class="img-row">
+        <div class="img-column">
+        <img src="/images/2017Honda/civic5.jpg" alt="civic picture" id="civic5" onload="getImage(this);">
+        </div>
+        <div class="img-column">
+        <img src="/images/2017Honda/civic6.jpg" alt="civic picture" id="civic6" onclick="getImage(this);">
+        </div>
+        <div class="img-column">
+        <img src="/images/2017Honda/civic1.jpg" alt="civic picture" id="civic7" onclick="getImage(this);">
+        </div>
+        <div class="img-column">
+        <img src="/images/2017Honda/civic8.jpg" alt="civic picture" id="civic8" onclick="getImage(this);">
+        </div>
+    </div>
+  
+  
+</div>
+
+  <script>
+    function getImage(imgs) {  
+        // Get the expanded image 
+        var expandImg = document.getElementById("expandedImg"); 
+        // Use the same src in the expanded image as the image being clicked on from the grid 
+        expandImg.src = imgs.src; 
+        expandImg.parentElement.style.display = "block"; 
+    } 
+   
+</script>

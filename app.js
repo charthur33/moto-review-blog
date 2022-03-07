@@ -50,7 +50,6 @@ const postsSchema = {
 const Post = mongoose.model("Post", postsSchema);
 
 
-
 //***********ALL ROUTES*************** */
 app.get("/", function (req, res) {
   //Find posts in the DB and render them on homepage
@@ -150,8 +149,8 @@ app.get("/moreReviews/:postTitle", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      let title = "More " + foundPost.year + " " + foundPost.make + " " + foundPost.model + " Reviews";
-      let qString = foundPost.year + " " + foundPost.make + " " + foundPost.model + " reviews";
+      let title = "More " + postTitle + " Reviews";
+      let qString = postTitle + " reviews";
       var opts = {
         maxResults: 8,
         key: process.env.YT_API_KEY

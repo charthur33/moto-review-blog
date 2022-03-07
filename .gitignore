@@ -135,3 +135,6 @@ views/delete.ejs
 
 # youtube API
 client_secret.json
+
+#private property
+public/images
