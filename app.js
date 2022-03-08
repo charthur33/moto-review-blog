@@ -4,6 +4,7 @@ const https = require("https");
 const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require("mongoose");
+const Post = require("./models/post.model");
 require("dotenv").config();
 const nodemailer = require("nodemailer");
 const { propertyOf } = require("lodash");
@@ -20,35 +21,8 @@ app.use(express.static("public"));
 
 app.use("/admin-routes", require("./adminRoutes/routes"));
 
+
 let allPosts = [];
-
-//***********MONGODB SETUP************ */
-//Schema and model
-const postsSchema = {
-  title: String,
-  content: String,
-  date: String,
-  reviewer: String,
-  make: String,
-  model: String,
-  year: String,
-  thumbnailId: String,
-  gridId: String,
-  rating1: String,
-  rating2: String,
-  rating3: String,
-  rating4: String,
-  rating5: String,
-  spec1: String,
-  spec2: String,
-  spec3: String,
-  spec4: String,
-  spec5: String,
-  overallRating: String
-};
-
-const Post = mongoose.model("Post", postsSchema);
-
 
 //***********ALL ROUTES*************** */
 app.get("/", function (req, res) {
@@ -265,6 +239,15 @@ app.post("/subscribe", function (req, res) {
 //***********************SERVER / DB CONNECTION******** */
 
 app.listen(port, () => console.log(`The server has started on port: ${port}`));
-//Setting up mongoose to store posts
-//connection to local DB on port 27017
-mongoose.connect('mongodb://localhost:27017/motoBlogDB');
+
+mongoose.connect(
+  process.env.ATLAS_CONNECTION_STRING,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  },
+  (err) => {
+    if (err) throw err;
+    console.log("MongoDB connection established");
+  }
+);
