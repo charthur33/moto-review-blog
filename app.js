@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.use("/admin-routes", require("./adminRoutes/routes"));
+// app.use("/admin-routes", require("./adminRoutes/routes"));
 
 
 let allPosts = [];
