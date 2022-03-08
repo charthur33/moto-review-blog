@@ -60,6 +60,7 @@ html {
 
 .opening-paragraph {
   padding: 20px 0;
+  font-size: 1.25rem;
 }
 
 .thumbnail {
@@ -69,7 +70,7 @@ html {
   float: left;
   margin-right: 60px;
   padding-left: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   border-radius: 20px;
 }
 
@@ -130,22 +131,6 @@ html {
   margin: 100px 0;
 }
 
-.moreReviewsBtn {
-  background-color: #33d8b7;
-  color: #fff;
-  font-size: 1.5rem;
-  width: auto;
-  height: 50px;
-  border-radius: 8px;
-  border: 1px solid rgb(153, 153, 153);
-  padding: 0 10px;
-  margin-bottom: 75px;
-}
-
-.moreReviewsBtn:hover {
-  background-color: #1b7e6a;
-}
-
 /************** MORE REVIEWS PAGE ***********/
 .yt-link {
   text-decoration: none;
@@ -189,25 +174,14 @@ html {
 
 .sub-btn { 
   margin-top: 10px;
-  font-weight: bold;
-  background-color: #33d8b7;
-  border: 1px solid rgb(161, 161, 161);
-}
-
-.contact-btn {
-  font-weight: bold;
-  background-color: #33d8b7;
-  border: 1px solid rgb(161, 161, 161);
+  margin-bottom: 20px;
+  background-color: #0099ff;
+  border: none;
 }
 
 .sub-btn:hover {
-  background-color: #1b7e6a;
-  border: 1px solid rgb(161, 161, 161);
-}
-
-.contact-btn:hover {
-  background-color: #1b7e6a;
-  border: 1px solid rgb(161, 161, 161);
+  background-color: #005a95;
+  border: none;
 }
 
 .sub-h1 {
@@ -240,7 +214,7 @@ html {
 
 .footer p {
 	margin-top: 20px;
-	font-size: 12px;
+	font-size: 15px;
   color: #fff;
 }
 

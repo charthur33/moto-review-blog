@@ -132,9 +132,8 @@ dist
 # admin
 views/compose.ejs
 views/delete.ejs
+adminRoutes/
 
 # youtube API
 client_secret.json
 
-#private property
-public/images

@@ -9,9 +9,8 @@ const nodemailer = require("nodemailer");
 const { propertyOf } = require("lodash");
 var search = require('youtube-search');
 
-const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
-const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
-const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
+const homeStartingContent = "Welcome to SPG (Smiles Per Gallon) Moto Reviews! Please scroll down/see below for our most recent posts. We hope you enjoy reading about some pretty cool cars, don’t forget to subscribe to receive email updates for upcoming reviews and more.";
+const aboutContent = "Here at SPG Moto Reviews we love taking in-depth looks at anything with wheels and a motor. As true car enthusiasts, our focus does not involve getting lost in the nitty-gritty details of infotainment features, efficiency ratings, cupholders, etc. Instead, we like to take a practical approach to capturing and reviewing the real experience of driving each machine we feature. We focus on five main categories: Driving dynamics, Comfort, Practicality, Bang for Buck, and of course, Smiles Per Gallon. Please feel free to subscribe to get email updates about more awesome car review content. If you have any requests for reviews, or have a cool car located near Seattle, WA that you would like us to review/feature on the blog, don’t hesitate to reach out on the contact page. Happy driving!";
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -19,8 +18,9 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-let allPosts = [];
+app.use("/admin-routes", require("./adminRoutes/routes"));
 
+let allPosts = [];
 
 //***********MONGODB SETUP************ */
 //Schema and model
@@ -75,11 +75,7 @@ app.get("/subscribe", function (req, res) {
 });
 
 app.get("/contact", function (req, res) {
-  res.render('contact', { contactContent: contactContent });
-});
-
-app.get("/compose", function (req, res) {
-  res.render('compose');
+  res.render('contact');
 });
 
 app.get("/success", function (req, res) {
@@ -98,9 +94,6 @@ app.get("/msgFailure", function (req, res) {
   res.render('msgFailure');
 });
 
-app.get("/delete", function (req, res) {
-  res.render('delete');
-});
 
 
 // ****** RENDERING A POST WITH YOUTUBE REVIEWS ******** /
@@ -172,77 +165,6 @@ app.get("/moreReviews/:postTitle", function (req, res) {
     }
   });
 });
-
-
-
-app.post("/compose", function (req, res) {
-  let post_title = req.body.postTitle;
-  let post_text = req.body.postText;
-  let date = req.body.date;
-  let reviewer = req.body.reviewer;
-  let make = req.body.make;
-  let model = req.body.model;
-  let year = req.body.year;
-  let thumbnailId = req.body.thumbnailId;
-  let gridId = req.body.gridId;
-  let rating1 = req.body.rating1;
-  let rating2 = req.body.rating2;
-  let rating3 = req.body.rating3;
-  let rating4 = req.body.rating4;
-  let rating5 = req.body.rating5;
-  let spec1 = req.body.spec1;
-  let spec2 = req.body.spec2;
-  let spec3 = req.body.spec3;
-  let spec4 = req.body.spec4;
-  let spec5 = req.body.spec5;
-  let overallRating = req.body.overallRating;
-
-  //Object that will store a complete blog post
-  const newPost = new Post({
-    title: post_title,
-    content: post_text,
-    date: date,
-    reviewer: reviewer,
-    make: make,
-    model: model,
-    year: year,
-    thumbnailId: thumbnailId,
-    gridId: gridId,
-    rating1: rating1,
-    rating2: rating2,
-    rating3: rating3,
-    rating4: rating4,
-    rating5: rating5,
-    spec1: spec1,
-    spec2: spec2,
-    spec3: spec3,
-    spec4: spec4,
-    spec5: spec5,
-    overallRating: overallRating
-  });
-
-  //Callback prevents the page from reloading before new post is saved to the DB
-  newPost.save(function (err) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.redirect("/");
-    }
-  });
-
-});
-
-app.post("/delete", function (req, res) {
-  let post_title = req.body.postTitle;
-  Post.deleteOne({ title: post_title }, function (err) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.redirect("/");
-    }
-  });
-});
-
 
 app.post("/failure", function (req, res) {
   res.redirect("/subscribe");
