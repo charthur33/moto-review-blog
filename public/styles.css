@@ -15,7 +15,7 @@ html {
     border: 0;
     border-radius: 0;
     margin-bottom: 10px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 5px;
     height: 5%;
 }
@@ -60,7 +60,7 @@ html {
 
 .opening-paragraph {
   padding: 20px 0;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 .thumbnail {
@@ -69,7 +69,6 @@ html {
   position: relative;
   float: left;
   margin-right: 60px;
-  padding-left: 10px;
   margin-bottom: 20px;
   border-radius: 20px;
 }
@@ -83,7 +82,7 @@ html {
 }
 
 .home-posts p {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 /*************** POST PAGES **********/
